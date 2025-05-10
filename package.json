@@ -12,7 +12,7 @@
     "format": "prettier . --ignore-path .gitignore --write",
     "lint:fix": "eslint . --ignore-path .gitignore --fix",
     "fix-style": "npm run lint:fix & npm run format",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -31,10 +31,17 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.1.0",
     "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
     "nodemon": "^3.1.10",
     "prettier": "3.5.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.32.0",
     "vite": "^6.3.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,html,md}": [
+      "npm run fix-style",
+      "git add"
+    ]
   }
 }
